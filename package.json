@@ -1,0 +1,33 @@
+{
+  "name": "sentry-auth-example",
+  "version": "1.0.0",
+  "description": "Complete Sentry OAuth authentication example with React frontend and Express backend",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd server && npm run dev",
+    "dev:frontend": "cd sentryauth-frontend && npm run dev",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd server && npm start",
+    "start:frontend": "cd sentryauth-frontend && npm run preview",
+    "install:all": "npm install && cd server && npm install && cd ../sentryauth-frontend && npm install",
+    "build": "cd sentryauth-frontend && npm run build",
+    "lint": "cd sentryauth-frontend && npm run lint",
+    "setup": "npm run install:all && npm run setup:env",
+    "setup:env": "cp server/.env.example server/.env 2>/dev/null || true && cp sentryauth-frontend/.env.example sentryauth-frontend/.env 2>/dev/null || true && echo 'Environment files created. Please configure server/.env with your Sentry OAuth credentials.'"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "sentry",
+    "oauth",
+    "authentication",
+    "react",
+    "express",
+    "sqlite",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC"
+}
